@@ -17,7 +17,13 @@ function HomepageHeader() {
                 <text style={{
                     "font-size": "1.5rem"
                 }}>
-                    <br/>在上方导航栏选择想要查看的项目。
+                    <br/>在上方导航栏选择想要查看的子项目。
+                </text>
+                <text style={{
+                    "font-size": "1 rem"
+                }}>
+                    <br/>
+                    <br/>这是一个非公开项目。
                 </text>
             </div>
         </header>
@@ -28,7 +34,7 @@ export default function Home() {
     const {siteConfig} = useDocusaurusContext();
     return (
         <Layout
-            title={`HoloJaneway`}
+            title={`Endeavour`}
             description="Description will go into a meta tag in <head />"
         >
             <HomepageHeader/>
@@ -39,14 +45,11 @@ export default function Home() {
                         alt="USS_Shenzhou head"
                     />
                     <text className={styles.text}>
-                        你好！我是<strong>USS_Shenzhou</strong>，你也可以叫我神舟。
-                        <br/>
-                        我主要使用Forge/NeoForge为Minecraft Java Edition编写模组。
+                        你好！Endeavour是一个实验性的自动化信息收集项目。
                         <br/>
                         你可以在页面底端找到我的其他赛博刷新点。
                     </text>
                 </div>
-                <NewMods></NewMods>
             </main>
         </Layout>
     );

@@ -7,7 +7,7 @@ const darkTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'HoloJaneway',
+  title: 'Endeavour',
   tagline: 'Dinosaurs are cool',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
@@ -64,7 +64,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'HoloJaneway',
+        title: 'Endeavour',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.png',
@@ -72,16 +72,16 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'holojaneway/0',
+            docId: 'plm',
             position: 'left',
-            label: 'Mod开发教程',
+            label: 'PlanetMinecraft',
           },
-          {
+          /*{
             type: 'doc',
             docId: 'madparticle/home',
             position: 'left',
             label: 'Mod使用指南',
-          },
+          },*/
           /*{
             type: 'doc',
             docId: 'r6ms/home',
@@ -90,14 +90,14 @@ const config = {
           },*/
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/USS-Shenzhou/HoloJaneway',
-            label: '点个Star吧！',
+            href: 'https://holojaneway.uss-shenzhou.cn',
+            label: 'HoloJaneway',
             position: 'right',
           },
-          {
+          /*{
             type: 'localeDropdown',
             position: 'right',
-          },
+          },*/
         ],
       },
       docs: {
@@ -170,14 +170,10 @@ const config = {
         ],
         //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
         copyright: `<font size="2">
-        Copyright © ${new Date().getFullYear()} HoloJaneway, USS_Shenzhou. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
+        Copyright © ${new Date().getFullYear()} USS_Shenzhou.
+         | 保留所有权利。
+        </br>Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
          | <a href="https://beian.miit.gov.cn" target="_blank">蜀ICP备2023001090号-1</a>
-        </br>HoloJaneway网站使用<a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT</a>许可证。
-         | The HoloJaneway website is licensed under <a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT License</a>.
-        </br>《HoloJaneway Mod开发教程》使用<a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0，BSD-3-Clause和GPLv3</a>许可证。
-         | The HoloJaneway Mod Developing Tutorial is licensed under <a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0，BSD-3-Clause and GPLv3 License</a>.
-        </br>USS_Shenzhou 对《Mod使用指南》中的所有内容保留所有权利。
-         | All rights reserved for the Mod Usage Guidelines.
          </font>
         `,
       },
