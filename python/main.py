@@ -1,5 +1,6 @@
 import json
 import shutil
+import time
 
 import requests
 from bs4 import BeautifulSoup
@@ -22,6 +23,11 @@ def get_title_and_description(pmc_project_url):
     s = BeautifulSoup(r.text, "html.parser")
     t = s.find("div", {"id": "resource-title-text"}).text
     d = s.find("div", {"id": "r-text-block"}).text
+    print(f"""---------
+URL: {pmc_project_url}
+Title:{t}
+Description{d}
+    """)
     return {title: t, description: d, "url": pmc_project_url}
 
 
@@ -32,7 +38,7 @@ def get_translated_title_and_description(title_and_description):
         messages=[
             {
                 "role": "system",
-                "content": """你将获得一个Minecraft数据包项目的标题和描述。请将标题恰当地翻译为中文，并总结项目描述的主要内容并用中文输出。"
+                "content": """你将获得一个Minecraft数据包项目的标题和描述。请将标题恰当地翻译为中文，并总结项目描述的主要内容，用中文输出。"
                            "翻译标题时如果标题带有版本信息则忽略，描述总结尽量不超过100字。以含有"title"和"description"两个键的json格式输出。"""
             },
             {
@@ -41,15 +47,22 @@ def get_translated_title_and_description(title_and_description):
             }
         ]
     )
+    c = str(response.choices[0].message.content)
+    print(f"""---------
+URL: {title_and_description["url"]}
+Title:{title_and_description[title]}
+Description:{title_and_description[title]}
+Translate:{c}
+    """)
     return json.loads(str(response.choices[0].message.content))
 
 
-def write_md(project_json, file):
+def write_md(project_json, project_url, file):
     file.write("\n<Box>\n")
     file.write("### ["
                + project_json[title]
                + "]("
-               + project_json["url"]
+               + project_url
                + ")\n")
     file.write(project_json[description])
     file.write("\n</Box>\n")
@@ -83,16 +96,19 @@ for i in range(pages):
         find_projects_on_page(mainResponse, urls)
     else:
         find_projects_on_page(requests.get(pmcUrl + "&p={}".format(i + 1), headers=headers), urls)
-
 projects = []
-# for url in urls:
-projects.append(get_title_and_description(urls[0]))
-shutil.copyfile("plm_template.md", "../docs/plm.md")
-plm_md = open("../docs/plm.md", mode="a+")
+for url in urls:
+    projects.append(get_title_and_description(url))
+shutil.copyfile("python/plm_template.md", "docs/plm.md")
+plm_md = open("docs/plm.md", mode="a+")
+i = 0
 for project in projects:
     try:
-        json = get_translated_title_and_description(project)
-        write_md(json, plm_md)
+        time.sleep(15)
+        j = get_translated_title_and_description(project)
+        write_md(j, urls[i], plm_md)
     except Exception as e:
         print(e)
+    finally:
+        i = i + 1
 plm_md.close()

@@ -7,7 +7,7 @@ slug: /PlanetMinecraft
 
 # 最近更新的数据包
 
-此页面展示最近三天内PlanetMinecraft上最近更新的数据包。总结和翻译工作由人工智能模型完成，不提供准确性保证。
+此页面展示最近三天内PlanetMinecraft上最近更新的数据包。总结和翻译工作由GPT完成，不提供准确性保证。
 
 ---
 
